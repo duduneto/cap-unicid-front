@@ -4,18 +4,14 @@ import React from 'react';
 
 function LifeCycle() {
 
-    // React.useEffect(() => {
-    //   console.log('Hallow')
-    // },[])
-
     const [nome, setNome] = React.useState("Taking");
 
     function changeNome(newValue) {
         setNome(newValue);
     }
 
-    console.log('Montando Componente')
-
+    console.log('Montando Componente Life Cycle');
+    
     return (
         <div>
             <h1 >{nome}</h1>

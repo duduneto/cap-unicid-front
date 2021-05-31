@@ -1,12 +1,9 @@
 import React from 'react';
 
-
 function Login() {
 
   const emailRef = React.useRef();
   const passwordRef = React.useRef();
-
-  const [email, setEmail] = React.useState()
 
   function login() {
     fetch('http://localhost:3333/user/login', {
@@ -19,7 +16,7 @@ function Login() {
     .catch(error => console.log('Error Login => ', error))
   }
 
-  console.log('Renderizando Form')
+  console.log('Renderizando Form');
 
   return (
     <main className="login_container">
@@ -29,7 +26,6 @@ function Login() {
       <div className="credentials_container">
         <div className="credential_block">
           <input ref={emailRef} placeholder={"e-mail"}
-          // onChange={(event) => setEmail(event.target.value)} 
           ></input>
         </div>
         <div className="credential_block">
