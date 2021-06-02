@@ -31,6 +31,7 @@ function ListPosts() {
     console.log('Tela de Posts')
     return (
         <section className="dashboard_posts_containers">
+            <button onClick={listAllPosts} >Refresh</button>
             <ul className="posts_list">
                 {
                     loading ?

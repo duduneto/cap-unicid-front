@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 function Home() {
     const history = useHistory();
 
-    const posts = useSelector(state => state.posts.list)
+    const posts = useSelector(state => state.posts.list);
 
     function handleLogout() {
         localStorage.removeItem('token');

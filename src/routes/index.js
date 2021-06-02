@@ -1,15 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Public from './public';
 import Private from './private';
 import { authenticate } from '../redux/features/auth'
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Routes() {
+    const history = useHistory();
+
+    const token = useSelector(state => state.auth.token)
 
     const dispatch = useDispatch(authenticate);
-    const history = useHistory();
 
     React.useEffect(() => {
         const token = localStorage.getItem('token');
@@ -43,13 +45,18 @@ function Routes() {
         }
     }, []);
 
-    console.log('Load all ROUTES')
+    React.useEffect(() => {
+        if (token) {
+            history.push('/home')
+        }
+    }, [token])
+
 
     return (
-        <Router>
+        <>
             <Public></Public>
             <Private></Private>
-        </Router>
+        </>
     );
 }
 

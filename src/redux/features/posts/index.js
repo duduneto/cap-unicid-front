@@ -6,7 +6,7 @@ export const postsSlice = createSlice({
     list: []
   },
   reducers: {
-    setList: (state, action) => {
+    setList: function (state, action) {
       state.list = action.payload;
     }
   }
