@@ -3,13 +3,12 @@ import { Home } from '../screens';
 import { Route, Switch, Redirect } from "react-router-dom";
 
 function Private() {
-
-    const [logged, setLogged] = React.useState(true);
-
+    const token = localStorage.getItem('token')
+    console.log(token)
     return (
         <>
             {
-                logged ?
+                !!token ?
                     <Switch>
                         <Route path="/home" exact>
                             <Home />

@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  display: flex;
 }
 
 .App-logo {
@@ -14,14 +19,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
 
 .App-link {
@@ -135,5 +133,179 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+.pd_h_1 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.pd_h_2 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.btn_danger {
+  width: 60px;
+  height: 26px;
+  border: none;
+  background-color: lightcoral;
+  color: #fff;
+  border-radius: 3px;
+}
+.btn_danger:active {
+  background-color: rgb(167, 93, 93);
+}
+
+.page_container {
+  width: 100%;
+}
+.center_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex_start_content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.header_navbar {
+  height: 64px;
+  border-bottom: 1px solid #5f6c85;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header_navbar .profile_info {
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.header_navbar .profile_info span {
+  font-size: 16px;
+}
+.header_navbar .image_info_container {
+  height: 100%;
+  width: 42px;
+  cursor: pointer;
+}
+.header_navbar .image_info_container img{
+  height: 42px;
+  width: 100%;
+  border-radius: 30px;
+  border: 2px solid #fff;
+}
+
+.header_navbar .profile_info:hover .option_dropdown {
+  display: flex;
+}
+
+.header_navbar .option_dropdown {
+  width: 160px;
+  height: 100px;
+  background-color: #5f6c85;
+  position: absolute;
+  left: 38px;
+  top: 90px;
+  border-radius: 5px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.header_navbar .option_dropdown button {
+  cursor: pointer;
+}
+.header_navbar .option_dropdown::before {
+  content: '';
+  position: absolute;
+  background-color: #5f6c85;
+  border-color: #5f6c85;
+  border-style: solid;
+  border-width: 0px 4px 4px 0;
+  height: 10px;
+  top: 19px;
+  right: 12px;
+  margin-top: -1em;
+  transform: rotate(225deg);
+  width: 10px;
+}
+
+.posts_list {
+  margin: 2rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, calc(95%/3));
+  column-gap: 20px;
+  row-gap: 15px;
+}
+
+.dashboard_posts_containers .posts_list li {
+  list-style-type: none;
+}
+
+.dashboard_posts_containers .post_container {
+  height: 150px;
+  background-color: rgb(179, 180, 228);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.dashboard_posts_containers .post_container .image_container {
+  width: 150px;
+  height: 120px;
+}
+.dashboard_posts_containers .post_container .image_container img {
+  width: 100%;
+}
+.dashboard_posts_containers .post_container .info_container {
+  width: 100%;
+  height: 120px;
+  color: #282c34;
+}
+.dashboard_posts_containers .post_container .info_container .title_container {
+  height: 40%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.dashboard_posts_containers .post_container .info_container .description_container {
+  height: 60%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+
+.dashboard_posts_containers .post_container .info_container .title_container span {
+  font-size: 18px;
+}
+.dashboard_posts_containers .post_container .info_container .description_container span {
+  font-size: 14px;
+  text-align: start;
+}
+
+/* POSTS GRID */
+@media (max-width: 920px) {
+  .posts_list {
+    grid-template-columns: repeat(2, calc(95%/2));
+  }
+}
+@media (max-width: 720px) {
+  .posts_list {
+    grid-template-columns: repeat(1, 100%);
   }
 }

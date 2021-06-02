@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Loader } from '../../components'
+import { Loader } from '../../components';
 
 function Login() {
 
@@ -23,6 +23,8 @@ function Login() {
         console.log('Login Success Response => ', data);
         if (!data.error) {
           history.push('/home')
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
         }
         setLoading(false);
       })
@@ -35,7 +37,8 @@ function Login() {
   console.log('Renderizando Form');
 
   return (
-    <main className="login_container">
+    <main className="page_container center_content">
+    <div className="login_container">
       <div className="title_login_container">
         <h3>Login</h3>
       </div>
@@ -50,13 +53,14 @@ function Login() {
                 ></input>
               </div>
               <div className="credential_block">
-                <input ref={passwordRef} placeholder={"senha"} ></input>
+                <input type="password" ref={passwordRef} placeholder={"senha"} ></input>
               </div>
               <div className="credential_ctas">
                 <button onClick={login}>Log-in</button>
               </div>
             </>
         }
+      </div>
       </div>
     </main>
   );
