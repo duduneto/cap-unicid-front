@@ -10,6 +10,8 @@ function Home() {
     const posts = useSelector(state => state.posts.list)
 
     function handleLogout() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
         history.push('/login')
     }
 
@@ -20,7 +22,7 @@ function Home() {
             <nav className="header_navbar">
                 <div className="profile_info">
                     <div className="text_info_container center_content pd_h_1">
-                        <span>{JSON.parse(localStorage.getItem('user')).email}</span>
+                        <span>{JSON.parse(localStorage.getItem('user'))?.email}</span>
                     </div>
                     <div className="image_info_container center_content">
                         <img alt="imagem de perfil do usuário" src={profile_image}></img>
@@ -31,11 +33,11 @@ function Home() {
                 </div>
             </nav>
 
-                <div className="flex_start_content pd_h_2">
-                   <h5>{` ${posts.length} - Episódios Encontrados`}</h5> 
-                </div>
-            
-                <ListPost />
+            <div className="flex_start_content pd_h_2">
+                <h5>{` ${posts.length} - Episódios Encontrados`}</h5>
+            </div>
+
+            <ListPost />
         </main>
     );
 }

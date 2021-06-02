@@ -22,11 +22,11 @@ function Login() {
       .then(data => {
         console.log('Login Success Response => ', data);
         if (!data.error) {
+          setLoading(false);
           history.push('/home')
           localStorage.setItem('token', data.token);
           localStorage.setItem('user', JSON.stringify(data.user));
         }
-        setLoading(false);
       })
       .catch(error => {
         console.log('Error Login => ', error);

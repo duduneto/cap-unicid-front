@@ -280,12 +280,11 @@
   height: 60%;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   padding-left: 1rem;
   padding-right: 1rem;
   overflow: hidden;
    text-overflow: ellipsis;
-   display: -webkit-box;
    -webkit-line-clamp: 2; /* number of lines to show */
    -webkit-box-orient: vertical;
 }
