@@ -1,23 +1,24 @@
 import React from 'react';
 import { Home } from '../screens';
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 function Private() {
-    const token = localStorage.getItem('token')
-    const user = JSON.parse(localStorage.getItem('user'))
-    console.log(token)
+    const { token, user } = useSelector(state => state.auth);
+    const history = useHistory();
+    
+    React.useEffect(() => {
+        if(!token) {
+            history.push('/login')
+        }
+    },[])
     return (
         <>
-            {
-                !!token && user ?
-                    <Switch>
-                        <Route path="/home" exact>
-                            <Home />
-                        </Route>
-                    </Switch>
-                    : <Redirect to="/login" />
-            }
+            <Switch>
+                <Route path="/home" exact>
+                    <Home />
+                </Route>
+            </Switch>
         </>
     );
 }

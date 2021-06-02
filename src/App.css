@@ -308,3 +308,8 @@
     grid-template-columns: repeat(1, 100%);
   }
 }
+
+.login_feedback_error {
+  font-size: 16px;
+  color: tomato;
+}

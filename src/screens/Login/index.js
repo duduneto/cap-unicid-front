@@ -10,6 +10,7 @@ function Login() {
   const passwordRef = React.useRef();
 
   const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(null)
 
   function login() {
     setLoading(true);
@@ -26,6 +27,9 @@ function Login() {
           history.push('/home')
           localStorage.setItem('token', data.token);
           localStorage.setItem('user', JSON.stringify(data.user));
+        } else {
+          setError(data);
+          setLoading(false);
         }
       })
       .catch(error => {
@@ -41,8 +45,11 @@ function Login() {
     <div className="login_container">
       <div className="title_login_container">
         <h3>Login</h3>
+        {
+          error && <span className="login_feedback_error">{error.errorMessage}</span>
+        }
       </div>
-      <div className="credentials_container">
+      <form className="credentials_container">
         {
           loading ?
             <Loader />
@@ -60,7 +67,7 @@ function Login() {
               </div>
             </>
         }
-      </div>
+      </form>
       </div>
     </main>
   );
